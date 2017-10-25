@@ -1,0 +1,44 @@
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 16px;
+
+  a {
+    display: block;
+    margin: 0 7.5px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+      fill: #dbdbdb;
+      transition: fill .3s ease-in-out;
+    }
+
+    &:hover {
+
+      svg { fill: #000 }
+    }
+  }
+}
+@media (min-width: $phone-landscape) {
+  .social {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .social {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .social {
+
+  }
+}
+@media (min-width: $desktop) {
+  .social {
+
+  }
+}

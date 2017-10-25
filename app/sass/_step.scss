@@ -1,0 +1,33 @@
+.step {
+
+  &__thankyou {
+    display: none;
+  }
+
+  .success {
+
+    .step__submited { display: none }
+    .step__thankyou { display: block }
+  }
+}
+@media (min-width: $phone-landscape) {
+  .step {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .step {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .step {
+
+  }
+}
+@media (min-width: $desktop) {
+  .step {
+
+  }
+}
+

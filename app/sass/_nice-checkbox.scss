@@ -1,0 +1,95 @@
+.nice-checkbox {
+  display: block;
+  user-select: none;
+
+  input[ type = checkbox ] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+
+    &:checked + label {
+
+      &:before {
+        border-color: #8cc5ff;
+        background-color: #8cc5ff;
+      }
+
+    }
+
+    &:disabled + label {
+      cursor: default;
+      opacity: .5;
+    }
+
+  }
+  label {
+    position: relative;
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    font-size: 14px;
+    color: rgb(78, 78, 78);
+    line-height: 0.936;
+    @include main-font();
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: '';
+    }
+
+    &:after {
+      position: absolute;
+      top: -6px;
+      left: 1px;
+      width: 12px;
+      height: 12px;
+      z-index: 2;
+      border: 2px solid #fff;
+      box-sizing: border-box;
+      clip: rect(3px, 15px, 15px, 8px);
+      transform: rotate(45deg);
+      content: '';
+    }
+
+    &:before {
+      position: absolute;
+      top: -3px;
+      left: 1px;
+      width: 15px;
+      height: 15px;
+      z-index: 1;
+      border-width: 1px;
+      border-color: rgb(209, 209, 209);
+      border-style: solid;
+      border-radius: 3px;
+      background-color: rgb(255, 255, 255);
+      box-sizing: border-box;
+      transition: background .3s ease-in-out, border .3s ease-in-out;
+      content: '';
+    }
+  }
+}
+
+@media (min-width: $tablet-portrait) {
+  .nice-checkbox {
+
+    label {
+      padding-left: 29px;
+      font-size: 15px;
+
+      &:after {
+        width: 15px;
+        height: 15px;
+      }
+
+      &:before {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

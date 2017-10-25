@@ -1,0 +1,47 @@
+.rate {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 140px;
+  height: 20px;
+  background: url("../img/star.png") repeat-x left center;
+
+  &_lower {
+    transform: matrix(.75,0,0,.75,0,0);
+    transform-origin: right;
+  }
+
+  &_higher {
+    transform: matrix(1.5,0,0,1.5,0,0);
+    transform-origin: left;
+  }
+
+  &__wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: url("../img/star-active.png") repeat-x left center;
+  }
+}
+@media (min-width: $phone-landscape) {
+  .rate {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .rate {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .rate {
+
+  }
+}
+@media (min-width: $desktop) {
+  .rate {
+
+  }
+}
+

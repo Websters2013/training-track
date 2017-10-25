@@ -1,0 +1,124 @@
+.search {
+  position: relative;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  transform: translatez(0);
+  @include main-font-bold();
+  z-index: 2;
+
+  &__wrap{
+    display: inline-flex;
+    position: relative;
+    border-radius: inherit;
+    background-color: #fff;
+    z-index: 2;
+  }
+
+  svg {
+    position: relative;
+    @include absoluteCenterY();
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    fill: #e5e5e5;
+    transition: fill .3s ease-in-out;
+  }
+
+  input[type=search] {
+    width: 247px;
+    height: 49px;
+    padding: 0 10px 0 40px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: rgb(60, 60, 60);
+    font-weight: bold;
+    line-height: 1.552;
+    text-align: left;
+    @include main-font-bold();
+
+    &:focus + svg { fill: rgb(60, 60, 60) }
+  }
+
+  button[type=submit] {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    margin-top: 20px;
+
+    span {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+}
+@media (min-width: $phone-landscape) {
+  .search {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .search {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .search {
+    display: inline-flex;
+    position: relative;
+    height: 61px;
+    border-radius: 31px;
+    background-color: rgb(255, 255, 255);
+    transform: translatez(0);
+    @include main-font-bold();
+
+    &__wrap{
+      display: inline-flex;
+    }
+
+    svg {
+      @include absoluteCenterY();
+      left: 21px;
+      width: 33px;
+      height: 33px;
+      pointer-events: none;
+      fill: #e5e5e5;
+      transition: fill .3s ease-in-out;
+    }
+
+    input[type=search] {
+      width: 247px;
+      height: 61px;
+      padding: 0 20px 0 70px;
+      border: none;
+      font-size: 18px;
+      color: rgb(60, 60, 60);
+      font-weight: bold;
+      line-height: 1.552;
+      text-align: left;
+      @include main-font-bold();
+
+      &:focus + svg { fill: rgb(60, 60, 60) }
+    }
+
+    button[type=submit] {
+      position: relative;
+      top: auto;
+      width: 192px;
+      margin-top: 0;
+
+      span {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+@media (min-width: $desktop) {
+  .search {
+
+  }
+}
+

@@ -1,0 +1,35 @@
+.thankYou {
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  line-height: 1.863;
+  @include main-font();
+
+  &__title {
+    display: block;
+    font-size: 15px;
+    color: rgb(78, 78, 78);
+    line-height: 1.863;
+    @include main-font-bold();
+  }
+}
+@media (min-width: $phone-landscape) {
+  .thankYou {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .thankYou {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .thankYou {
+
+  }
+}
+@media (min-width: $desktop) {
+  .thankYou {
+
+  }
+}
+

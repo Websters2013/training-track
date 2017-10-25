@@ -1,0 +1,68 @@
+.offered {
+  position: relative;
+  padding: 30px 0 23px 0;
+  font-size: 15.89px;
+  line-height: 24px;
+
+  h3{
+    width: 100%;
+    margin-bottom: 31px;
+    color: #c4c4c4;
+    @include main-font-bold;
+    font-size: 20px;
+
+    & + div{
+      display: block;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+  }
+
+  > div{
+
+  }
+
+}
+@media (min-width: $phone-landscape) {
+  .offered {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .offered {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 155px 0 75px 0;
+
+    h3{
+      font-size: 28px;
+
+      & + div{
+        font-size: 24px;
+        line-height: 35px;
+      }
+
+    }
+
+    & > div{
+      width: 48.6%;
+      padding-right: 30px;
+    }
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .offered {
+
+  }
+}
+@media (min-width: $desktop) {
+  .offered {
+
+  }
+}
+

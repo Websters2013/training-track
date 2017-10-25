@@ -1,0 +1,84 @@
+.pictures {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -10px;
+
+  &__item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 115px;
+    height: 115px;
+    margin: 0 10px 10px 0;
+    border-radius: 8px;
+    background-color: #000;
+
+    img {
+      @include absoluteCenterY();
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      transition: opacity .3s ease-in-out;
+      will-change: opacity;
+    }
+
+    &-remove {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 15px;
+      opacity: 0;
+      border-radius: 8px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: rgb(255, 255, 255);
+      text-transform: uppercase;
+      line-height: 2.5;
+      transition: opacity .3s ease-in-out;
+      @include main-font-bold();
+
+      svg {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 5px;
+        fill: -moz-linear-gradient(left, rgba(129,190,254,1) 0%, rgba(255,128,128,1) 100%);
+        fill: -webkit-linear-gradient(left, rgba(129,190,254,1) 0%,rgba(255,128,128,1) 100%);
+        fill: linear-gradient(to right, rgba(129,190,254,1) 0%,rgba(255,128,128,1) 100%);
+      }
+    }
+
+    &:hover {
+
+      img { opacity: .3 }
+
+      .pictures__item-remove { opacity: 1 }
+    }
+  }
+}
+@media (min-width: $phone-landscape) {
+  .pictures {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .pictures {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .pictures {
+
+  }
+}
+@media (min-width: $desktop) {
+  .pictures {
+
+  }
+}
+

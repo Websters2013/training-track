@@ -1,0 +1,38 @@
+.thumbnail {
+  overflow: hidden;
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+
+  &_lower {
+    transform: matrix(.65,0,0,.65,0,0);
+  }
+
+  img {
+    @include absoluteCenter();
+    z-index: 1;
+    width: 100%;
+  }
+}
+@media (min-width: $phone-landscape) {
+  .thumbnail {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .thumbnail {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .thumbnail {
+
+  }
+}
+@media (min-width: $desktop) {
+  .thumbnail {
+
+  }
+}
+

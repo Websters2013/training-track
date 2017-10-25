@@ -1,0 +1,49 @@
+.tag {
+  display: inline-block;
+  padding: 0 12px;
+  margin: 0 5px 5px 0;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 23px;
+  background-color: #95c9ff;
+  color: #fff;
+  @include main-font-bold();
+
+  &_close {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+    line-height: 2.149;
+    background-color: rgb(237, 237, 237);
+    cursor: pointer;
+
+    svg {
+      width: 10px;
+      height: 10px;
+      margin-left: 12px;
+      fill: #aeaeae;
+    }
+  }
+}
+@media (min-width: $phone-landscape) {
+  .tag {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .tag {
+
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .tag {
+
+  }
+}
+@media (min-width: $desktop) {
+  .tag {
+
+  }
+}
+

@@ -1,0 +1,131 @@
+.popup {
+  display: block;
+  opacity: 0;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 10000;
+  padding: 10px;
+  background: rgba(225,225,225,.922);
+  text-align: center;
+  transition: opacity 500ms ease-in-out;
+  @include main-font();
+
+  &_opened {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_hide {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__wrap {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    z-index: 2;
+  }
+
+  &__content {
+    //display: none;
+    text-align: left;
+    padding: 20px;
+    border-radius: 40px;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 589px;
+
+    &_photos {
+      padding: 20px 0;
+      background: none;
+      border-radius: 0;
+    }
+
+    h2 {
+      padding: 0 0 52px 4px;
+      font-size: 24px;
+      color: rgb(0, 0, 0);
+      line-height: 2.292;
+      @include main-font-bold();
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 17px;
+    height: 17px;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__add-review {
+
+    h2 {
+      padding-bottom: 12px;
+    }
+  }
+
+  &__photos {
+    background: none;
+    padding: 0 !important;
+    width: auto;
+    max-width: 100%;
+    border-radius: 0;
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    &:before {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      content: '';
+      pointer-events: none;
+      background: rgba(0,0,0,.5);
+    }
+  }
+
+  &__scrollbar-measure {
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .popup {
+
+    &__content {
+      padding: 35px 48px;
+    }
+  }
+}

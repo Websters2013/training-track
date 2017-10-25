@@ -1,0 +1,159 @@
+.comments {
+  max-width: 654px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 18px 0 rgba(28, 41, 54, 0.07);
+
+  &__head {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(147, 147, 147);
+    line-height: 1.167;
+
+    .link {
+      color: rgb(8, 23, 21);
+    }
+  }
+
+  .tag {
+    margin: 0 0 0 8px;
+    font-size: 20px;
+    line-height: 28px;
+    border-radius: 20px;
+  }
+
+  &__list {
+
+  }
+
+  &__item {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+
+    &.hide { display: none }
+
+    &-head {
+      text-align: center;
+
+      dl {
+
+        dt {
+          display: block;
+          font-size: 24px;
+          color: rgb(0, 0, 0);
+          line-height: 1.167;
+        }
+
+        dd {
+
+        }
+      }
+
+      data {
+        font-size: 14px;
+        color: rgb(167, 167, 167);
+        line-height: 1.714;
+      }
+
+      .rate { margin: 0 auto 15px }
+    }
+
+    p {
+      line-height: 1.5;
+    }
+  }
+
+  &__more {
+
+    div {
+      display: none;
+
+      &:first-child { display: block }
+    }
+
+    &.active {
+
+      div {
+        display: block;
+
+        &:first-child { display: none }
+      }
+    }
+  }
+
+  &__footer {
+    padding: 15px 0;
+    text-align: center;
+  }
+}
+@media (min-width: $phone-landscape) {
+  .comments {
+
+  }
+}
+@media (min-width: $tablet-portrait) {
+  .comments {
+    padding: 46px 50px;
+    margin-bottom: 90px;
+
+    &__head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 57px;
+    }
+
+    &__list {
+      margin-bottom: 56px;
+    }
+
+    &__item {
+      font-size: 16px;
+      padding-top: 61px;
+
+      &:first-child { padding-top: 0 }
+
+      &-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 9px;
+
+        dl {
+
+          dt,
+          dd {
+            display: inline;
+          }
+        }
+
+        data {
+          margin-left: 8px;
+        }
+
+        .rate {
+          margin-bottom: 13px;
+        }
+      }
+    }
+
+    &__footer {
+      padding: 0;
+    }
+  }
+}
+@media (min-width: $tablet-landscape) {
+  .comments {
+
+  }
+}
+@media (min-width: $desktop) {
+  .comments {
+
+  }
+}
+

@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+
+    <title>Title</title>
+
+    <style>
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background-color: #f5f5f5;
+        }
+        .loader.hide {
+            opacity: 0;
+            visibility: hidden;
+            -webkit-animation: hideLoader 1s 1 ease-in-out both;
+            animation: hideLoader 1s 1 ease-in-out both;
+        }
+        .loader__wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            transform: translate(-50%,-50%);
+        }
+        .loader__wrap div {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            background-color: #94ddbd;
+            -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+            animation: bouncedelay 1.4s infinite ease-in-out both;
+        }
+        .loader__wrap div.loader__one {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+            background-color: #ff8080;
+        }
+        .loader__wrap div.loader__two {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+            background-color: #8cc5ff;
+        }
+
+        @-webkit-keyframes bouncedelay {
+            0%, 80%, 100% { -webkit-transform: scale(0) }
+            40% { -webkit-transform: scale(1) }
+        }
+
+        @keyframes bouncedelay {
+            0%, 80%, 100% {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+            40% {
+                transform: scale(1);
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @-webkit-keyframes hideLoader {
+            0% {
+                visibility: visible;
+                opacity: 1;
+            }
+            100% {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        @keyframes hideLoader {
+            0% {
+                visibility: visible;
+                opacity: 1;
+            }
+            100% {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="css/perfect-scrollbar.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/list_page.css">
+
+</head>
+<body>
+
+<!-- loader -->
+<div class="loader">
+    <!-- loader__wrap -->
+    <div class="loader__wrap">
+        <div class="loader__one"></div>
+        <div class="loader__two"></div>
+        <div class="loader__three"></div>
+    </div>
+    <!-- /loader__wrap -->
+</div>
+<!-- /loader -->
+
+    <!-- site -->
+    <div class="site">
+
+        <!-- site__header -->
+        <header class="site__header site__header_static">
+
+            <!-- logo -->
+            <a href="#" class="logo"><img src="img/logo2.png" alt="trainingtrack"></a>
+            <!-- /logo -->
+
+            <!-- menu-btn -->
+            <span class="menu-btn">
+                <span></span>
+            </span>
+            <!-- /menu-btn -->
+
+            <!-- menu -->
+            <div class="menu">
+                <!-- menu__navigation -->
+                <nav class="menu__navigation">
+                    <a href="#">Les coachs</a>
+                    <a href="#">FAQ</a>
+                </nav>
+                <!-- /menu__navigation -->
+                <a href="#" class="link popup__open" data-popup="application">Je suis un coach</a>
+            </div>
+            <!-- /menu -->
+
+        </header>
+        <!-- /site__header -->
+
+        <!-- site__content -->
+        <main class="site__content">
+
+            <!-- site__center -->
+            <div class="site__center">
+
+                <!-- list -->
+                <div class="list">
+
+                    <!-- list__filter -->
+                    <div class="list__filter">
+
+                        <!-- site__title -->
+                        <strong class="site__title">Chercher un coach</strong>
+                        <!-- /site__title -->
+
+                        <!-- list__filter-wrap -->
+                        <div class="list__filter-wrap">
+
+                            <!--search-autocomplite-->
+                            <div class="search-autocomplite search-autocomplite_localisation">
+
+                                <!--search-autocomplite__inner-->
+                                <div class="search-autocomplite__inner">
+                                    <label for="location">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <path d="M85.2,79.4L63.5,57.7c3.3-4.4,5.2-10,5.2-16c0-15-12.1-27.1-27.1-27.1S14.6,26.7,14.6,41.7s12.1,27.1,27.1,27.1
+                                                c6,0,11.5-1.9,16-5.2l21.7,21.7c0.8,0.8,1.9,1.2,2.9,1.2s2.1-0.4,2.9-1.2C86.9,83.5,86.9,81,85.2,79.4L85.2,79.4z M41.7,60.4
+                                                c-10.4,0-18.8-8.3-18.8-18.8s8.3-18.8,18.8-18.8s18.8,8.3,18.8,18.8C60.4,52.1,52.1,60.4,41.7,60.4z"/>
+                                        </svg>
+                                    </label>
+
+                                    <input id="location" name="location" class="research-panel__search" data-title="Localisation" type="search" placeholder="Localisation" autocomplete="off">
+
+                                    <!-- search-autocomplite__list -->
+                                    <div class="search-autocomplite__list">
+                                        <ul class="nice-checkbox">
+                                            <li>
+                                                <input id="ch1" type="checkbox" value="Anderlecht" checked>
+                                                <label for="ch1">Anderlecht</label>
+                                            </li>
+                                            <li>
+                                                <input id="ch2" value="Ixelles" type="checkbox">
+                                                <label for="ch2">Ixelles</label>
+                                            </li>
+                                            <li>
+                                                <input id="ch3" value="Etterbeek" type="checkbox">
+                                                <label for="ch3">Etterbeek</label>
+                                            </li>
+                                            <li>
+                                                <input id="ch4" value="Auderghem" type="checkbox">
+                                                <label for="ch4">Auderghem</label>
+                                            </li>
+                                            <li>
+                                                <input id="ch5" value="Saint-Gilles" type="checkbox">
+                                                <label for="ch5">Saint-Gilles</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- /search-autocomplite__list -->
+
+                                </div>
+                                <!--/search-autocomplite__inner-->
+
+                            </div>
+                            <!--/search-autocomplite-->
+
+                            <!--search-autocomplite-->
+                            <div class="search-autocomplite">
+
+                                <!--search-autocomplite__inner-->
+                                <div class="search-autocomplite__inner">
+                                    <label for="category">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <path d="M9.1,36.4h27.3V9.1H9.1V36.4z M0,9.1C0,4.1,4,0,9.1,0h27.3c5,0,9.1,4,9.1,9.1v27.3c0,5-4,9.1-9.1,9.1H9.1
+                                                c-5,0-9.1-4-9.1-9.1L0,9.1z M9.1,90.9h27.3V63.6H9.1V90.9z M0,63.6c0-5,4-9.1,9.1-9.1h27.3c5,0,9.1,4,9.1,9.1v27.3
+                                                c0,5-4,9.1-9.1,9.1H9.1c-5,0-9.1-4-9.1-9.1L0,63.6z M63.6,90.9h27.3V63.6H63.6V90.9z M54.5,63.6c0-5,4-9.1,9.1-9.1h27.3
+                                                c5,0,9.1,4,9.1,9.1v27.3c0,5-4,9.1-9.1,9.1H63.6c-5,0-9.1-4-9.1-9.1V63.6z M63.6,36.4h27.3V9.1H63.6V36.4z M54.5,9.1
+                                                c0-5,4-9.1,9.1-9.1h27.3c5,0,9.1,4,9.1,9.1v27.3c0,5-4,9.1-9.1,9.1H63.6c-5,0-9.1-4-9.1-9.1V9.1z"/>
+                                        </svg>
+                                    </label>
+
+                                    <input id="category" name="category" class="research-panel__search" data-title="Toutes les catégories" type="search" placeholder="Toutes les catégories" autocomplete="off">
+
+                                    <!-- search-autocomplite__list -->
+                                    <div class="search-autocomplite__list">
+                                        <ul>
+                                            <li>Lorem</li>
+                                            <li>ALorem</li>
+                                            <li>BLorem</li>
+                                            <li>CLorem</li>
+                                            <li>DLorem</li>
+                                        </ul>
+                                    </div>
+                                    <!-- /search-autocomplite__list -->
+
+                                </div>
+                                <!--/search-autocomplite__inner-->
+
+                            </div>
+                            <!--/search-autocomplite-->
+
+                            <select class="notes">
+                                <option value="0">Meilleure note</option>
+                                <option value="1">Nombre de notes</option>
+                                <option value="2">Meilleure note</option>
+                                <option value="3">Nombre de notes</option>
+                                <option value="4">Meilleure note</option>
+                                <option value="5">Nombre de notes</option>
+                                <option value="6">Meilleure note</option>
+                                <option value="7">Nombre de notes</option>
+                            </select>
+                        </div>
+                        <!-- /list__filter-wrap -->
+
+                    </div>
+                    <!-- /list__filter -->
+
+                    <!-- list__wrap -->
+                    <div class="list__wrap">
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <div class="list__item-pic" style="background-image: url(pic/list/pic1.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong class="colorBlue"><span class="colorRed">Force,</span> Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </div>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Djihed Naga
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorRed">Force</span>, Perte de poids
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <span class="list__item-pic" style="background-image: url(pic/list/pic2.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong><span class="colorBlue">Force</span>, Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </span>
+                            <dl class="list__item-info">
+                                <dt>
+                                    John Doe
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorBlue">Perte de poids</span>
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <span class="list__item-pic" style="background-image: url(pic/list/pic3.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong><span class="colorGreen">Force</span>, Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </span>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Chloé Dupond
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorGreen">Remise en forme</span>
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <div class="list__item-pic" style="background-image: url(pic/list/pic1.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong class="colorBlue"><span class="colorRed">Force,</span> Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </div>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Amy Vandevelde
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorRed">Force</span>, Remise en forme, Endurance
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <span class="list__item-pic" style="background-image: url(pic/list/pic2.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong><span class="collorYellow">Force</span>, Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </span>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Mathieu Creteur
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="collorYellow">Endurance</span>, Remise en forme
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <span class="list__item-pic" style="background-image: url(pic/list/pic3.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong><span class="colorRed">Force</span>, Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </span>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Dirk Durden
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorRed">Force</span>
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <div class="list__item-pic" style="background-image: url(pic/list/pic1.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong class="colorBlue"><span class="colorRed">Force,</span> Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </div>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Edouart Huffel
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorRed">Force</span>
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <span class="list__item-pic" style="background-image: url(pic/list/pic2.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong><span class="colorBlue">Force</span>, Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </span>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Johan Cruyff
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorBlue">Perte de poids</span>, Remise en forme
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                        <!-- list__item -->
+                        <a href="" class="list__item">
+                            <span class="list__item-pic" style="background-image: url(pic/list/pic3.jpg)">
+                                <!-- list__item-description -->
+                                <div class="list__item-description">
+                                    <!-- thumbnail -->
+                                    <div class="thumbnail thumbnail_lower">
+                                        <img src="pic/profile/pic1.jpg" alt="">
+                                    </div>
+                                    <!-- /thumbnail -->
+                                    <strong><span class="colorGreen">Force</span>, Perte de poids</strong>
+                                    <p>A sport about technique every bit as it is about pure strength. Weightlifting has been around as long as competition itself....</p>
+                                    <span class="list__item-arrow">
+                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                            <g>
+                                               <path d="M50,21.7c-15.6,0-28.3,12.7-28.3,28.3S34.4,78.3,50,78.3S78.3,65.6,78.3,50S65.6,21.7,50,21.7z M50,74
+                                                    c-13.2,0-23.9-10.7-24-24c0-13.2,10.7-23.9,24-24c13.2,0,23.9,10.7,24,24C73.9,63.2,63.2,73.9,50,74z"></path>
+                                                <path d="M55.9,38.6c-0.9-0.9-2.2-0.8-3.1,0c-0.8,0.8-0.8,2.2,0,3.1l6.2,6.2H35.8c-1.2,0-2.2,1-2.2,2.2c0,1.2,1,2.2,2.2,2.2H59
+                                                        l-6.2,6.2c-0.8,0.8-0.8,2.2,0,3.1s2.2,0.8,3.1,0l9.9-9.9l0.6-1.5l-0.6-1.5L55.9,38.6z"></path>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <!-- /list__item-description -->
+                            </span>
+                            <dl class="list__item-info">
+                                <dt>
+                                    Elodie Nam
+                                    <!-- rate -->
+                                    <div class="rate rate_lower">
+                                        <span class="rate__wrap" style="width: 100%"></span>
+                                    </div>
+                                    <!-- /rate -->
+                                </dt>
+                                <dd>
+                                    <span class="colorGreen">Remise en forme</span>
+                                </dd>
+                            </dl>
+                        </a>
+                        <!-- /list__item -->
+
+                    </div>
+                    <!-- /list__wrap -->
+
+                    <!-- list__loading -->
+                    <div class="list__loading">
+                        <img src="img/list-loading.png" alt="loading">
+                        chargement
+                    </div>
+                    <!-- /list__loading -->
+
+                </div>
+                <!-- /list -->
+
+            </div>
+            <!-- /site__center -->
+            
+        </main>
+        <!-- /site__content -->
+
+        <!-- site__footer -->
+        <footer class="site__footer">
+
+            <!-- site__footer-title -->
+            <strong class="site__footer-title">trainingtrack</strong>
+            <!-- /site__footer-title -->
+
+            <!-- social -->
+            <div class="social">
+                <!-- social__item -->
+                <a href="#" class="social__item">
+                    <svg viewBox="0 0 169.063 169.063" style="enable-background:new 0 0 169.063 169.063;"
+                             xml:space="preserve">
+                        <g>
+                            <path d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752
+                                c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407
+                                c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
+                                c17.455,0,31.656,14.201,31.656,31.655V122.407z"/>
+                            <path d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
+                                C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
+                                c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z"/>
+                            <path d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
+                                c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
+                                C135.661,29.421,132.821,28.251,129.921,28.251z"/>
+                        </g>
+                    </svg>
+                </a>
+                <!-- /social__item -->
+
+                <!-- social__item -->
+                <a href="#" class="social__item">
+                    <svg viewBox="0 0 430.113 430.114" style="enable-background:new 0 0 430.113 430.114;" xml:space="preserve">
+                        <g>
+                            <path d="M158.081,83.3c0,10.839,0,59.218,0,59.218h-43.385v72.412h43.385v215.183h89.122V214.936h59.805
+                                c0,0,5.601-34.721,8.316-72.685c-7.784,0-67.784,0-67.784,0s0-42.127,0-49.511c0-7.4,9.717-17.354,19.321-17.354
+                                c9.586,0,29.818,0,48.557,0c0-9.859,0-43.924,0-75.385c-25.016,0-53.476,0-66.021,0C155.878-0.004,158.081,72.48,158.081,83.3z"/>
+                        </g>
+                    </svg>
+                </a>
+                <!-- /social__item -->
+            </div>
+            <!-- /social -->
+
+            <a href="#" class="link popup__open" data-popup="inscription">demande de coaching spontanée</a>
+
+            <!-- site__footer-copyright -->
+            <div class="site__footer-copyright">
+                <span>Copyright (c) Training Track - Conditions générales d'utilisations</span>
+                <span>Website carefully crafted by <a href="https://ergonomic.be/">ergonomic</a></span>
+            </div>
+            <!-- /site__footer-copyright -->
+        </footer>
+        <!-- /site__footer -->
+
+    </div>
+    <!-- /site -->
+
+    <!-- popup -->
+    <div class="popup">
+
+        <!-- popup__wrap -->
+        <div class="popup__wrap">
+
+            <!-- popup__content -->
+            <div class="popup__content popup__application">
+                <button class="popup__close">
+                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                        <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                            c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                            c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                    </svg>
+                </button>
+
+                <h2>Demande spontanée de coaching</h2>
+
+                <!-- application -->
+                <form action="#" class="application site__form">
+
+                    <!-- site__form-row -->
+                    <div class="site__form-row">
+                        <!-- site__form-double -->
+                        <div class="site__form-double">
+                            <div class="site__form-field">
+                                <input type="text" name="surname" placeholder="Prénom" required>
+                                <i>
+                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                        <g>
+                                            <path d="M50,50C25,50,5,70,5,95c0,3,2,5,5,5h80c3,0,5-2,5-5C95,70,75,50,50,50z M15.5,90C18,73,32.5,60,50,60s32,13,34.5,30H15.5z"
+                                                />
+                                            <path d="M50,45c12.5,0,22.5-10,22.5-22.5S62.5,0,50,0S27.5,10,27.5,22.5S37.5,45,50,45z M50,10c7,0,12.5,5.5,12.5,12.5S57,35,50,35
+                                                s-12.5-5.5-12.5-12.5S43,10,50,10z"/>
+                                        </g>
+                                    </svg>
+                                </i>
+                            </div>
+                            <div class="site__form-field">
+                                <input type="text" name="name" placeholder="Nom" required>
+                                <i>
+                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                        <g>
+                                            <path d="M50,50C25,50,5,70,5,95c0,3,2,5,5,5h80c3,0,5-2,5-5C95,70,75,50,50,50z M15.5,90C18,73,32.5,60,50,60s32,13,34.5,30H15.5z"
+                                                />
+                                            <path d="M50,45c12.5,0,22.5-10,22.5-22.5S62.5,0,50,0S27.5,10,27.5,22.5S37.5,45,50,45z M50,10c7,0,12.5,5.5,12.5,12.5S57,35,50,35
+                                                s-12.5-5.5-12.5-12.5S43,10,50,10z"/>
+                                        </g>
+                                    </svg>
+                                </i>
+                            </div>
+                        </div>
+                        <!-- /site__form-double -->
+
+                        <!-- site__form-field -->
+                        <div class="site__form-field">
+                            <input type="email" name="email" placeholder="Email" required>
+                            <i>
+                                <svg class="email" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                    <path d="M74.8,24H25.2c-6.1,0-11,4.9-11,11v30c0,6.1,4.9,11,11,11h49.6c6.1,0,11-4.9,11-11V35C85.8,28.9,80.9,24,74.8,24z
+                                         M63.9,45.9l15.9-10.7V65L63.9,45.9z M74.8,30c0.5,0,1.1,0.1,1.6,0.3L50,48L23.6,30.3c0.5-0.2,1-0.3,1.6-0.3L74.8,30z M20.2,65V35.2
+                                        l15.9,10.7L20.2,65z M25.2,70c-0.4,0-0.8-0.1-1.2-0.2l17.1-20.5l7.2,4.8h0c1,0.7,2.3,0.7,3.3,0l7.2-4.8L76,69.8
+                                        c-0.4,0.1-0.8,0.2-1.2,0.2L25.2,70z"/>
+                                </svg>
+                            </i>
+                        </div>
+                        <!-- /site__form-field -->
+
+                    </div>
+                    <!-- /site__form-row -->
+
+                    <label for="message">Qu’attendez-vous du coaching ?</label>
+                    <textarea id="message" placeholder="Vos attentes"></textarea>
+
+                    <!-- site__form-btns -->
+                    <div class="site__form-btns">
+                        <button type="submit" class="btn btn_color btn_icon">
+                            <span>
+                                Envoyer
+                                <i>
+                                    <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                        <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                            s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                    </svg>
+                                </i>
+                            </span>
+                        </button>
+                    </div>
+                    <!-- /site__form-btns -->
+                </form>
+                <!-- /application -->
+            </div>
+            <!-- /popup__content -->
+
+            <!-- popup__content -->
+            <div class="popup__content popup__inscription">
+                <button class="popup__close">
+                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                        <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                            c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                            c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                    </svg>
+                </button>
+
+                <h2>Inscription en tant que coach</h2>
+
+                <!-- inscription -->
+                <form action="#" class="inscription site__form step">
+
+                    <!-- inscription__steps -->
+                    <div class="inscription__steps">
+                        <div class="swiper-container">
+
+                            <div class="swiper-pagination"></div>
+
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+
+                                    <!-- site__form-row -->
+                                    <div class="site__form-row">
+
+                                        <!-- site__form-double -->
+                                        <div class="site__form-double">
+                                            <div class="site__form-field">
+                                                <input type="text" name="surname" placeholder="Prénom" required>
+                                                <i>
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <path d="M50,50C25,50,5,70,5,95c0,3,2,5,5,5h80c3,0,5-2,5-5C95,70,75,50,50,50z M15.5,90C18,73,32.5,60,50,60s32,13,34.5,30H15.5z"
+                                                                />
+                                                            <path d="M50,45c12.5,0,22.5-10,22.5-22.5S62.5,0,50,0S27.5,10,27.5,22.5S37.5,45,50,45z M50,10c7,0,12.5,5.5,12.5,12.5S57,35,50,35
+                                                                s-12.5-5.5-12.5-12.5S43,10,50,10z"/>
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                            <div class="site__form-field">
+                                                <input type="text" name="name" placeholder="Nom" required>
+                                                <i>
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <path d="M50,50C25,50,5,70,5,95c0,3,2,5,5,5h80c3,0,5-2,5-5C95,70,75,50,50,50z M15.5,90C18,73,32.5,60,50,60s32,13,34.5,30H15.5z"
+                                                                />
+                                                            <path d="M50,45c12.5,0,22.5-10,22.5-22.5S62.5,0,50,0S27.5,10,27.5,22.5S37.5,45,50,45z M50,10c7,0,12.5,5.5,12.5,12.5S57,35,50,35
+                                                                s-12.5-5.5-12.5-12.5S43,10,50,10z"/>
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <!-- /site__form-double -->
+
+                                        <!-- site__form-double -->
+                                        <div class="site__form-double">
+                                            <!-- site__form-field -->
+                                            <div class="site__form-field">
+                                                <input type="email" name="email" placeholder="Email" required>
+                                                <i>
+                                                    <svg class="email" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <path d="M74.8,24H25.2c-6.1,0-11,4.9-11,11v30c0,6.1,4.9,11,11,11h49.6c6.1,0,11-4.9,11-11V35C85.8,28.9,80.9,24,74.8,24z
+                                                             M63.9,45.9l15.9-10.7V65L63.9,45.9z M74.8,30c0.5,0,1.1,0.1,1.6,0.3L50,48L23.6,30.3c0.5-0.2,1-0.3,1.6-0.3L74.8,30z M20.2,65V35.2
+                                                            l15.9,10.7L20.2,65z M25.2,70c-0.4,0-0.8-0.1-1.2-0.2l17.1-20.5l7.2,4.8h0c1,0.7,2.3,0.7,3.3,0l7.2-4.8L76,69.8
+                                                            c-0.4,0.1-0.8,0.2-1.2,0.2L25.2,70z"/>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                            <!-- /site__form-field -->
+                                            <div class="site__form-field">
+                                                <input type="tel" name="telephone" placeholder="Téléphone" required>
+                                                <i>
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <path d="M25.5,17.5h0.3c2,0.1,3.8,1,5.5,2c3.5,2.1,6.6,4.9,9,8.1c1.5,1.9,2.7,4.5,1.8,6.7c-1,2.6-4.5,3.7-5,6.5
+                                                            c-0.3,1.5,0.5,2.9,1.3,4.1c4.4,7.2,10.7,13.3,18,17.5c0.7,0.4,1.5,0.8,2.3,0.8h0.2c0.1,0,0.1-0.1,0.2-0.1c0.9-0.2,1.6-0.8,2.2-1.5
+                                                            c1.4-1.4,3.1-2.6,4.9-3.7c0.6-0.3,1.2-0.7,1.9-0.7h0.2c0.7,0.1,1.2,0.4,1.8,0.8c3.1,2,5.9,4.3,8.5,6.9c1.8,1.8,3.5,3.8,4,6.4
+                                                            c0.5,2.5-0.5,5.1-2.2,6.9c-1.7,1.9-4,3-6.5,3.6c-1.5,0.4-3,0.5-4.6,0.5c-3.5,0-7-0.8-10.3-2c-13.7-4.7-25-14.7-33.2-26.6
+                                                            c-3.5-5-6.5-10.5-7.8-16.4C16.7,31.9,17.1,17.5,25.5,17.5 M25.5,10.3c-4.2,0-8,1.8-10.7,5.1C9,22.7,9.9,34.9,10.8,39
+                                                            c1.3,6.2,4.3,12.4,9,19.1c10,14.3,22.7,24.4,36.8,29.2c4.6,1.6,8.8,2.4,12.7,2.4c2.2,0,4.3-0.2,6.3-0.7c4.2-1,7.6-2.9,10.1-5.7
+                                                            c3.4-3.6,4.9-8.5,4-13.1c-0.9-5-4.3-8.4-5.9-10.1c-2.9-2.9-6.1-5.6-9.7-7.9c-0.1,0-0.1-0.1-0.2-0.1c-0.9-0.6-2.6-1.6-4.9-1.8h-0.1
+                                                            H68c-2.6,0-4.4,1-5.4,1.6c-1.7,1-3.3,2-4.7,3.3c-5.1-3.4-9.5-7.7-12.8-12.8c1.2-1.1,2.8-2.7,3.7-5.1c1-2.5,1.9-7.6-2.7-13.8
+                                                            c-3-4-6.8-7.5-11.1-10c-1.9-1.2-5-2.8-8.7-3h-0.2C26,10.3,25.8,10.3,25.5,10.3L25.5,10.3z"/>
+                                                    </svg>
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <!-- /site__form-double -->
+
+                                        <!-- site__form-double -->
+                                        <div class="site__form-double">
+                                            <input id="radioSex" type="text" required>
+                                            <!-- site__form-field -->
+                                            <div class="site__form-field sex">
+                                                <input id="male" type="radio" name="sexFields" value="male">
+                                                <label for="male">
+                                                    <i>
+                                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                            <path d="M71.7,3.1v8h11.6l-18,18c-6.8-5.5-15.2-8.5-24-8.5c-10.2,0-19.8,4-27,11.2c-14.9,14.9-14.9,39.1,0,54
+                                                                c7.2,7.2,16.8,11.2,27,11.2s19.8-4,27-11.2c13.9-13.9,14.8-36,2.7-51l18-18v11.6h8V3.1L71.7,3.1z M62.6,80.1
+                                                                c-5.7,5.7-13.3,8.8-21.3,8.8c-8.1,0-15.6-3.1-21.3-8.8c-11.8-11.8-11.8-30.9,0-42.7c5.7-5.7,13.3-8.8,21.3-8.8
+                                                                c8.1,0,15.6,3.1,21.3,8.8C74.4,49.2,74.4,68.3,62.6,80.1L62.6,80.1z"/>
+                                                        </svg>
+                                                    </i>
+                                                    Je suis un homme
+                                                </label>
+                                            </div>
+                                            <!-- /site__form-field -->
+                                            <div class="site__form-field sex">
+                                                <input id="female" type="radio" name="sexFields" value="female">
+                                                <label for="female">
+                                                    <i>
+                                                        <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                            <path d="M81.3,35.5c0-17.3-14-31.3-31.3-31.3c-17.3,0-31.3,14-31.3,31.3c0,15.9,11.9,29.1,27.3,31v10.1H35.8c-2.2,0-4,1.8-4,4
+                                                                s1.8,4,4,4H46v9.3c0,2.2,1.8,4,4,4s4-1.8,4-4v-9.3h10.2c2.2,0,4-1.8,4-4s-1.8-4-4-4H54v-10C69.4,64.5,81.3,51.4,81.3,35.5z
+                                                                 M26.7,35.5c0-12.8,10.5-23.3,23.3-23.3s23.3,10.5,23.3,23.3S62.8,58.8,50,58.8S26.7,48.3,26.7,35.5z"/>
+                                                        </svg>
+                                                    </i>
+                                                    Je suis une femme
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- /site__form-double -->
+
+                                    </div>
+                                    <!-- /site__form-row -->
+
+                                    <!-- site__form-justify -->
+                                    <div class="site__form-justify">
+                                        <div class="first site__form-select-required">
+                                            <input type="text" name="Jour" required>
+                                            <select>
+                                                <option value="0">Jour</option>
+                                                <option value="1">Jour 1</option>
+                                                <option value="2">Jour 2</option>
+                                                <option value="3">Jour 3</option>
+                                                <option value="4">Jour 4</option>
+                                                <option value="5">Jour 5</option>
+                                                <option value="6">Jour 6</option>
+                                            </select>
+                                        </div>
+                                        <div class="second site__form-select-required">
+                                            <input type="text" name="Mois" required>
+                                            <select>
+                                                <option value="0">Mois</option>
+                                                <option value="1">Mois 1</option>
+                                                <option value="2">Mois 2</option>
+                                                <option value="3">Mois 3</option>
+                                                <option value="4">Mois 4</option>
+                                            </select>
+                                        </div>
+                                        <div class="third site__form-select-required">
+                                            <input type="text" name="Annee" required>
+                                            <select>
+                                                <option value="0">Annee</option>
+                                                <option value="1">Annee 1</option>
+                                                <option value="2">Annee 2</option>
+                                                <option value="3">Annee 3</option>
+                                                <option value="4">Annee 4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- /site__form-justify -->
+
+                                    <!-- site__form-btns -->
+                                    <div class="site__form-btns">
+                                        <a href="#" class="btn btn_color btn_icon step__next">
+                                    <span>
+                                        Suivant
+                                        <i>
+                                            <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                                <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                    s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                        </a>
+                                    </div>
+                                    <!-- /site__form-btns -->
+                                </div>
+                                <div class="swiper-slide">
+
+                                    <!-- inscription__avatar -->
+                                    <div class="inscription__avatar">
+                                        <span class="inscription__avatar-pic"></span>
+                                        <!-- site__form-file -->
+                                        <div class="site__form-file">
+                                            <input id="avatar" type="file" required>
+                                            <label for="avatar">
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                <g>
+                                                    <path d="M32.5,33.8l13.9-13.9v43.9c0,2,1.7,3.6,3.6,3.6c2,0,3.6-1.7,3.6-3.6V19.9l13.9,13.9c1.4,1.4,3.8,1.4,5.1,0
+                                                        c0.7-0.7,1-1.6,1-2.6s-0.4-1.9-1-2.6l-20-20c-0.6-0.6-1.5-1-2.4-1l-0.3-0.1l-0.2,0.1c-0.8,0.1-1.7,0.4-2.3,1l-20,20.1
+                                                        c-0.7,0.7-1,1.6-1,2.6s0.4,1.9,1,2.6C28.7,35.1,31.1,35.1,32.5,33.8L32.5,33.8z"/>
+                                                    <path d="M90.1,55.1c-2,0-3.6,1.7-3.6,3.6v14.5c0,6.6-5.4,12-12,12l-49,0c-6.6,0-12-5.4-12-12l0-14.5c0-2-1.7-3.6-3.6-3.6
+                                                        c-2,0-3.6,1.7-3.6,3.6v14.5c0,10.6,8.6,19.3,19.3,19.3h49.1c10.6,0,19.3-8.6,19.3-19.3l0-14.5C93.8,56.8,92.2,55.1,90.1,55.1
+                                                        L90.1,55.1z"/>
+                                                </g>
+                                            </svg>
+                                                Ajouter ma photo de profil
+                                            </label>
+                                        </div>
+                                        <!-- /site__form-file -->
+                                    </div>
+                                    <!-- /inscription__avatar -->
+
+                                    <!-- site__form-row -->
+                                    <div class="site__form-row">
+
+                                        <label for="commons">Je coach dans les communes suivantes</label>
+
+                                        <div class="site__form-field">
+                                            <input id="commons" type="text" name="commons" placeholder="Communes" required>
+                                            <i>
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <g>
+                                                        <path d="M50,50C25,50,5,70,5,95c0,3,2,5,5,5h80c3,0,5-2,5-5C95,70,75,50,50,50z M15.5,90C18,73,32.5,60,50,60s32,13,34.5,30H15.5z"
+                                                            />
+                                                        <path d="M50,45c12.5,0,22.5-10,22.5-22.5S62.5,0,50,0S27.5,10,27.5,22.5S37.5,45,50,45z M50,10c7,0,12.5,5.5,12.5,12.5S57,35,50,35
+                                                            s-12.5-5.5-12.5-12.5S43,10,50,10z"/>
+                                                    </g>
+                                                </svg>
+                                            </i>
+                                        </div>
+
+                                        <!-- tags-wrap -->
+                                        <div class="tags-wrap">
+                                            <span class="tag tag_close">
+                                                Ixelles
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                                                        c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                                                        c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="tag tag_close">
+                                                Woluwe-Saint-Pierre
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                                                        c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                                                        c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="tag tag_close">
+                                                Auderghem
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                                                        c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                                                        c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="tag tag_close">
+                                                Saint-Gilles
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                                                        c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                                                        c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                                                </svg>
+                                            </span>
+                                            <span class="tag tag_close">
+                                                Woluwe-Saint-Lambert
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                                                        c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                                                        c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <!-- /tags-wrap -->
+
+                                    </div>
+                                    <!-- /site__form-row -->
+
+                                    <!-- site__form-btns -->
+                                    <div class="site__form-btns site__form-btns_double">
+                                        <a href="#" class="btn btn_2 btn_icon-revert step__prev">
+                                            <i>
+                                                <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                            <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                        </svg>
+                                            </i>
+                                            Précédent
+                                        </a>
+                                        <a href="#" class="btn btn_color btn_icon step__next">
+                                    <span>
+                                        Suivant
+                                        <i>
+                                            <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                                <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                    s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                        </a>
+                                    </div>
+                                    <!-- /site__form-btns -->
+                                </div>
+                                <div class="swiper-slide">
+
+                                    <!-- site__form-row -->
+                                    <div class="site__form-row">
+                                        <label for="inscription-message">Dites nous en plus sur votre service (expérience, diplôme)</label>
+                                        <textarea id="inscription-message" placeholder="" required></textarea>
+                                    </div>
+                                    <!-- /site__form-row -->
+
+                                    <label for="qualifications">Quelles certifications possédez-vous ?</label>
+
+                                    <div class="site__form-field">
+                                        <input id="qualifications" type="text" name="qualifications" placeholder="Ex: Crossfit level 1, ACSM Personal Trainer" required>
+                                        <i>
+                                            <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M95,47.5c0-12-8.5-22-20-24.5V7.5c0-3-2-5-5-5H10c-3,0-5,2-5,5v75c0,3,2,5,5,5h45v5c0,2,1,4,3,4.5c2,1,4,0.5,5.5-1l6.5-6.5
+                                                        l6.5,6.5c1.5,1.5,3.5,2,5.5,1s3-2.5,3-4.5v-25C91,63,95,55.5,95,47.5z M15,77.5v-65h50V23h-0.5C53.5,25.5,45,35.5,45,47.5
+                                                        c0,8,4,15.5,10,20v10H15z M75,80.5L73.5,79c-2-2-5-2-7,0L65,80.5V72c3.5,0.5,7,0.5,10,0V80.5z M66,62c-6.5-1.5-11-7.5-11-14.5
+                                                        c0-8.5,6.5-15,15-15s15,6.5,15,15C85,57.5,76,64.5,66,62z"/>
+                                                </svg>
+                                        </i>
+                                    </div>
+
+                                    <!-- site__form-btns -->
+                                    <div class="site__form-btns site__form-btns_double">
+                                        <a href="#" class="btn btn_2 btn_icon-revert step__prev">
+                                            <i>
+                                                <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                            <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                        </svg>
+                                            </i>
+                                            Précédent
+                                        </a>
+                                        <a href="#" class="btn btn_color btn_icon step__next">
+                                    <span>
+                                        Suivant
+                                        <i>
+                                            <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                                <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                    s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                            </svg>
+                                        </i>
+                                    </span>
+                                        </a>
+                                    </div>
+                                    <!-- /site__form-btns -->
+                                </div>
+                                <div class="swiper-slide">
+
+                                    <!-- step__submited -->
+                                    <div class="step__submited">
+                                        <!-- site__form-row -->
+                                        <div class="site__form-row">
+                                            <label for="category">Quelle est votre catégorie principale ?</label>
+
+                                            <div class="site__form-field">
+                                                <input id="category" type="text" name="category" placeholder="Catégorie principale" required>
+                                                <i>
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M95,47.5c0-12-8.5-22-20-24.5V7.5c0-3-2-5-5-5H10c-3,0-5,2-5,5v75c0,3,2,5,5,5h45v5c0,2,1,4,3,4.5c2,1,4,0.5,5.5-1l6.5-6.5
+                                                        l6.5,6.5c1.5,1.5,3.5,2,5.5,1s3-2.5,3-4.5v-25C91,63,95,55.5,95,47.5z M15,77.5v-65h50V23h-0.5C53.5,25.5,45,35.5,45,47.5
+                                                        c0,8,4,15.5,10,20v10H15z M75,80.5L73.5,79c-2-2-5-2-7,0L65,80.5V72c3.5,0.5,7,0.5,10,0V80.5z M66,62c-6.5-1.5-11-7.5-11-14.5
+                                                        c0-8.5,6.5-15,15-15s15,6.5,15,15C85,57.5,76,64.5,66,62z"/>
+                                                </svg>
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <!-- /site__form-row -->
+
+                                        <!-- site__form-row -->
+                                        <div class="site__form-row">
+                                            <label for="category-secondary">Dans quelles autres catégories vous situez-vous ?</label>
+
+                                            <div class="site__form-field">
+                                                <input id="category-secondary" type="text" name="category-secondary" placeholder="Catégories secondaires" required>
+                                                <i>
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M95,47.5c0-12-8.5-22-20-24.5V7.5c0-3-2-5-5-5H10c-3,0-5,2-5,5v75c0,3,2,5,5,5h45v5c0,2,1,4,3,4.5c2,1,4,0.5,5.5-1l6.5-6.5
+                                                        l6.5,6.5c1.5,1.5,3.5,2,5.5,1s3-2.5,3-4.5v-25C91,63,95,55.5,95,47.5z M15,77.5v-65h50V23h-0.5C53.5,25.5,45,35.5,45,47.5
+                                                        c0,8,4,15.5,10,20v10H15z M75,80.5L73.5,79c-2-2-5-2-7,0L65,80.5V72c3.5,0.5,7,0.5,10,0V80.5z M66,62c-6.5-1.5-11-7.5-11-14.5
+                                                        c0-8.5,6.5-15,15-15s15,6.5,15,15C85,57.5,76,64.5,66,62z"/>
+                                                </svg>
+                                                </i>
+                                            </div>
+
+                                            <!-- tags-wrap -->
+                                            <div class="tags-wrap">
+                                            <span class="tag tag_close">
+                                                Force
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                                                        c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                                                        c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                                                </svg>
+                                            </span>
+                                                <span class="tag tag_close">
+                                                Perte de poids
+                                                <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                    <path d="M60.3,50l35.1-35.1c2.8-2.8,2.8-7.5,0-10.3c-2.8-2.8-7.5-2.8-10.3,0L50,39.7L14.9,4.6c-2.8-2.8-7.5-2.8-10.3,0
+                                                        c-2.8,2.8-2.8,7.5,0,10.3L39.7,50L4.6,85.1c-2.8,2.8-2.8,7.5,0,10.3c1.4,1.4,3.3,2.1,5.2,2.1s3.7-0.7,5.2-2.1l35.1-35.1l35.1,35.1
+                                                        c1.4,1.4,3.3,2.1,5.2,2.1c1.9,0,3.7-0.7,5.2-2.1c2.8-2.8,2.8-7.5,0-10.3L60.3,50z"/>
+                                                </svg>
+                                            </span>
+                                            </div>
+                                            <!-- /tags-wrap -->
+                                        </div>
+                                        <!-- /site__form-row -->
+
+                                        <!-- site__form-row -->
+                                        <div class="site__form-row">
+
+                                            <!-- site__form-file -->
+                                            <div class="site__form-file">
+                                                <input id="pic" type="file" required>
+                                                <label for="pic">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <path d="M32.5,33.8l13.9-13.9v43.9c0,2,1.7,3.6,3.6,3.6c2,0,3.6-1.7,3.6-3.6V19.9l13.9,13.9c1.4,1.4,3.8,1.4,5.1,0
+                                                                c0.7-0.7,1-1.6,1-2.6s-0.4-1.9-1-2.6l-20-20c-0.6-0.6-1.5-1-2.4-1l-0.3-0.1l-0.2,0.1c-0.8,0.1-1.7,0.4-2.3,1l-20,20.1
+                                                                c-0.7,0.7-1,1.6-1,2.6s0.4,1.9,1,2.6C28.7,35.1,31.1,35.1,32.5,33.8L32.5,33.8z"/>
+                                                            <path d="M90.1,55.1c-2,0-3.6,1.7-3.6,3.6v14.5c0,6.6-5.4,12-12,12l-49,0c-6.6,0-12-5.4-12-12l0-14.5c0-2-1.7-3.6-3.6-3.6
+                                                                c-2,0-3.6,1.7-3.6,3.6v14.5c0,10.6,8.6,19.3,19.3,19.3h49.1c10.6,0,19.3-8.6,19.3-19.3l0-14.5C93.8,56.8,92.2,55.1,90.1,55.1
+                                                                L90.1,55.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Ajouter mes photos pour le portfolio
+                                                </label>
+                                            </div>
+                                            <!-- /site__form-file -->
+
+                                            <!-- pictures -->
+                                            <div class="pictures">
+                                                <a href="#" class="pictures__item">
+                                                    <img src="pic/photos/thumb-pic1.jpg" alt="">
+                                                    <span class="pictures__item-remove">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="24.1245" y1="24.1239" x2="75.8768" y2="75.8763">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_1_)" d="M50,86.6c20.2,0,36.6-16.4,36.6-36.6c0-20.2-16.4-36.6-36.6-36.6c-20.2,0-36.6,16.4-36.6,36.6
+                                                                S29.8,86.6,50,86.6z M50,19.4c16.9,0,30.6,13.7,30.6,30.6c0,16.9-13.7,30.6-30.6,30.6c-16.9,0-30.6-13.7-30.6-30.6
+                                                                S33.1,19.4,50,19.4z"/>
+                                                            <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="35.8983" y1="35.9028" x2="64.0993" y2="64.1039">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_2_)" class="st1" d="M35.9,64.1c0.6,0.6,1.4,0.9,2.1,0.9c0.7,0,1.5-0.3,2.1-0.9l9.9-9.9l9.9,9.9c0.6,0.6,1.4,0.9,2.1,0.9
+                                                                c0.7,0,1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2L54.2,50l9.9-9.9c1.2-1.2,1.2-3.1,0-4.2c-1.2-1.2-3.1-1.2-4.2,0L50,45.8l-9.9-9.9
+                                                                c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l9.9,9.9l-9.9,9.9C34.7,61.1,34.7,63,35.9,64.1L35.9,64.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Supprimer
+                                                </span>
+                                                </a>
+                                                <a href="#" class="pictures__item">
+                                                    <img src="pic/photos/thumb-pic2.jpg" alt="">
+                                                    <span class="pictures__item-remove">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="24.1245" y1="24.1239" x2="75.8768" y2="75.8763">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_1_)" d="M50,86.6c20.2,0,36.6-16.4,36.6-36.6c0-20.2-16.4-36.6-36.6-36.6c-20.2,0-36.6,16.4-36.6,36.6
+                                                                S29.8,86.6,50,86.6z M50,19.4c16.9,0,30.6,13.7,30.6,30.6c0,16.9-13.7,30.6-30.6,30.6c-16.9,0-30.6-13.7-30.6-30.6
+                                                                S33.1,19.4,50,19.4z"/>
+                                                            <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="35.8983" y1="35.9028" x2="64.0993" y2="64.1039">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_2_)" class="st1" d="M35.9,64.1c0.6,0.6,1.4,0.9,2.1,0.9c0.7,0,1.5-0.3,2.1-0.9l9.9-9.9l9.9,9.9c0.6,0.6,1.4,0.9,2.1,0.9
+                                                                c0.7,0,1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2L54.2,50l9.9-9.9c1.2-1.2,1.2-3.1,0-4.2c-1.2-1.2-3.1-1.2-4.2,0L50,45.8l-9.9-9.9
+                                                                c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l9.9,9.9l-9.9,9.9C34.7,61.1,34.7,63,35.9,64.1L35.9,64.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Supprimer
+                                                </span>
+                                                </a>
+                                                <a href="#" class="pictures__item">
+                                                    <img src="pic/photos/thumb-pic3.jpg" alt="">
+                                                    <span class="pictures__item-remove">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="24.1245" y1="24.1239" x2="75.8768" y2="75.8763">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_1_)" d="M50,86.6c20.2,0,36.6-16.4,36.6-36.6c0-20.2-16.4-36.6-36.6-36.6c-20.2,0-36.6,16.4-36.6,36.6
+                                                                S29.8,86.6,50,86.6z M50,19.4c16.9,0,30.6,13.7,30.6,30.6c0,16.9-13.7,30.6-30.6,30.6c-16.9,0-30.6-13.7-30.6-30.6
+                                                                S33.1,19.4,50,19.4z"/>
+                                                            <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="35.8983" y1="35.9028" x2="64.0993" y2="64.1039">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_2_)" class="st1" d="M35.9,64.1c0.6,0.6,1.4,0.9,2.1,0.9c0.7,0,1.5-0.3,2.1-0.9l9.9-9.9l9.9,9.9c0.6,0.6,1.4,0.9,2.1,0.9
+                                                                c0.7,0,1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2L54.2,50l9.9-9.9c1.2-1.2,1.2-3.1,0-4.2c-1.2-1.2-3.1-1.2-4.2,0L50,45.8l-9.9-9.9
+                                                                c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l9.9,9.9l-9.9,9.9C34.7,61.1,34.7,63,35.9,64.1L35.9,64.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Supprimer
+                                                </span>
+                                                </a>
+                                                <a href="#" class="pictures__item">
+                                                    <img src="pic/photos/thumb-pic2.jpg" alt="">
+                                                    <span class="pictures__item-remove">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="24.1245" y1="24.1239" x2="75.8768" y2="75.8763">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_1_)" d="M50,86.6c20.2,0,36.6-16.4,36.6-36.6c0-20.2-16.4-36.6-36.6-36.6c-20.2,0-36.6,16.4-36.6,36.6
+                                                                S29.8,86.6,50,86.6z M50,19.4c16.9,0,30.6,13.7,30.6,30.6c0,16.9-13.7,30.6-30.6,30.6c-16.9,0-30.6-13.7-30.6-30.6
+                                                                S33.1,19.4,50,19.4z"/>
+                                                            <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="35.8983" y1="35.9028" x2="64.0993" y2="64.1039">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_2_)" class="st1" d="M35.9,64.1c0.6,0.6,1.4,0.9,2.1,0.9c0.7,0,1.5-0.3,2.1-0.9l9.9-9.9l9.9,9.9c0.6,0.6,1.4,0.9,2.1,0.9
+                                                                c0.7,0,1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2L54.2,50l9.9-9.9c1.2-1.2,1.2-3.1,0-4.2c-1.2-1.2-3.1-1.2-4.2,0L50,45.8l-9.9-9.9
+                                                                c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l9.9,9.9l-9.9,9.9C34.7,61.1,34.7,63,35.9,64.1L35.9,64.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Supprimer
+                                                </span>
+                                                </a>
+                                                <a href="#" class="pictures__item">
+                                                    <img src="pic/photos/thumb-pic1.jpg" alt="">
+                                                    <span class="pictures__item-remove">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="24.1245" y1="24.1239" x2="75.8768" y2="75.8763">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_1_)" d="M50,86.6c20.2,0,36.6-16.4,36.6-36.6c0-20.2-16.4-36.6-36.6-36.6c-20.2,0-36.6,16.4-36.6,36.6
+                                                                S29.8,86.6,50,86.6z M50,19.4c16.9,0,30.6,13.7,30.6,30.6c0,16.9-13.7,30.6-30.6,30.6c-16.9,0-30.6-13.7-30.6-30.6
+                                                                S33.1,19.4,50,19.4z"/>
+                                                            <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="35.8983" y1="35.9028" x2="64.0993" y2="64.1039">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_2_)" class="st1" d="M35.9,64.1c0.6,0.6,1.4,0.9,2.1,0.9c0.7,0,1.5-0.3,2.1-0.9l9.9-9.9l9.9,9.9c0.6,0.6,1.4,0.9,2.1,0.9
+                                                                c0.7,0,1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2L54.2,50l9.9-9.9c1.2-1.2,1.2-3.1,0-4.2c-1.2-1.2-3.1-1.2-4.2,0L50,45.8l-9.9-9.9
+                                                                c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l9.9,9.9l-9.9,9.9C34.7,61.1,34.7,63,35.9,64.1L35.9,64.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Supprimer
+                                                </span>
+                                                </a>
+                                                <a href="#" class="pictures__item">
+                                                    <img src="pic/photos/thumb-pic3.jpg" alt="">
+                                                    <span class="pictures__item-remove">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="24.1245" y1="24.1239" x2="75.8768" y2="75.8763">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_1_)" d="M50,86.6c20.2,0,36.6-16.4,36.6-36.6c0-20.2-16.4-36.6-36.6-36.6c-20.2,0-36.6,16.4-36.6,36.6
+                                                                S29.8,86.6,50,86.6z M50,19.4c16.9,0,30.6,13.7,30.6,30.6c0,16.9-13.7,30.6-30.6,30.6c-16.9,0-30.6-13.7-30.6-30.6
+                                                                S33.1,19.4,50,19.4z"/>
+                                                            <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="35.8983" y1="35.9028" x2="64.0993" y2="64.1039">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_2_)" class="st1" d="M35.9,64.1c0.6,0.6,1.4,0.9,2.1,0.9c0.7,0,1.5-0.3,2.1-0.9l9.9-9.9l9.9,9.9c0.6,0.6,1.4,0.9,2.1,0.9
+                                                                c0.7,0,1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2L54.2,50l9.9-9.9c1.2-1.2,1.2-3.1,0-4.2c-1.2-1.2-3.1-1.2-4.2,0L50,45.8l-9.9-9.9
+                                                                c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l9.9,9.9l-9.9,9.9C34.7,61.1,34.7,63,35.9,64.1L35.9,64.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Supprimer
+                                                </span>
+                                                </a>
+                                                <a href="#" class="pictures__item">
+                                                    <img src="pic/photos/thumb-pic1.jpg" alt="">
+                                                    <span class="pictures__item-remove">
+                                                    <svg viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                                        <g>
+                                                            <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="24.1245" y1="24.1239" x2="75.8768" y2="75.8763">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_1_)" d="M50,86.6c20.2,0,36.6-16.4,36.6-36.6c0-20.2-16.4-36.6-36.6-36.6c-20.2,0-36.6,16.4-36.6,36.6
+                                                                S29.8,86.6,50,86.6z M50,19.4c16.9,0,30.6,13.7,30.6,30.6c0,16.9-13.7,30.6-30.6,30.6c-16.9,0-30.6-13.7-30.6-30.6
+                                                                S33.1,19.4,50,19.4z"/>
+                                                            <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="35.8983" y1="35.9028" x2="64.0993" y2="64.1039">
+                                                                <stop  offset="0" style="stop-color:#81BEFE"/>
+                                                                <stop  offset="1" style="stop-color:#FF8080"/>
+                                                            </linearGradient>
+                                                            <path fill="url(#SVGID_2_)" class="st1" d="M35.9,64.1c0.6,0.6,1.4,0.9,2.1,0.9c0.7,0,1.5-0.3,2.1-0.9l9.9-9.9l9.9,9.9c0.6,0.6,1.4,0.9,2.1,0.9
+                                                                c0.7,0,1.5-0.3,2.1-0.9c1.2-1.2,1.2-3.1,0-4.2L54.2,50l9.9-9.9c1.2-1.2,1.2-3.1,0-4.2c-1.2-1.2-3.1-1.2-4.2,0L50,45.8l-9.9-9.9
+                                                                c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l9.9,9.9l-9.9,9.9C34.7,61.1,34.7,63,35.9,64.1L35.9,64.1z"/>
+                                                        </g>
+                                                    </svg>
+                                                    Supprimer
+                                                </span>
+                                                </a>
+                                            </div>
+                                            <!-- /pictures -->
+
+                                        </div>
+                                        <!-- /site__form-row -->
+
+                                        <!-- site__form-btns -->
+                                        <div class="site__form-btns site__form-btns_double">
+                                            <a href="#" class="btn btn_2 btn_icon-revert step__prev">
+                                                <i>
+                                                    <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                                    <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                        s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                                </svg>
+                                                </i>
+                                                Précédent
+                                            </a>
+                                            <button type="submit" class="btn btn_color btn_icon step__submit">
+                                            <span>
+                                                Terminer
+                                                <i>
+                                                    <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                                        <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                            s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                                    </svg>
+                                                </i>
+                                            </span>
+                                            </button>
+                                        </div>
+                                        <!-- /site__form-btns -->
+                                    </div>
+                                    <!-- /step__submited -->
+
+                                    <!-- step__thankyou -->
+                                    <div class="step__thankyou">
+                                        <!-- site__form-row -->
+                                        <div class="site__form-row">
+                                            <!-- thankYou -->
+                                            <div class="thankYou">
+                                                <h4 class="thankYou__title">Merci !</h4>
+                                                <p>Votre demande nous a bien été envoyée. Nous examinons celle-ci et vous
+                                                    contactons rapidement.</p>
+                                            </div>
+                                            <!-- /thankYou -->
+                                        </div>
+                                        <!-- /site__form-row -->
+
+                                        <!-- site__form-btns -->
+                                        <div class="site__form-btns">
+
+                                            <a href="#" class="btn btn_color btn_icon">
+                                                <span>
+                                                    Continuer la navigation
+                                                    <i>
+                                                        <svg viewBox="0 0 56 95" style="enable-background:new 0 0 56 95;" xml:space="preserve">
+                                                            <path d="M56,47.5c0,2.2-0.8,4.3-2.5,6l-39,39c-3.3,3.3-8.7,3.3-12,0c-3.3-3.3-3.3-8.7,0-12l33-33l-33-33c-3.3-3.3-3.3-8.7,0-12
+                                                                s8.7-3.3,12,0l39,39C55.2,43.2,56,45.3,56,47.5z"/>
+                                                        </svg>
+                                                    </i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <!-- /site__form-btns -->
+                                    </div>
+                                    <!-- /step__thankyou -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /inscription__steps -->
+
+                </form>
+                <!-- /inscription -->
+            </div>
+            <!-- /popup__content -->
+
+        </div>
+        <!-- /popup__wrap -->
+
+    </div>
+    <!-- /popup -->
+
+
+    <script src="js/vendors/jquery-2.2.1.min.js"></script>
+    <script src="js/vendors/swiper.jquery.min.js"></script>
+    <script src="js/vendors/perfect-scrollbar.jquery.min.js"></script>
+    <script src="js/list.min.js"></script>
+</body>
+</html>
