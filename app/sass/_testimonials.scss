@@ -12,11 +12,11 @@
     justify-content: center;
     padding-bottom: 31px;
     margin-bottom: 21px;
+    overflow: hidden;
 
     &-item {
       display: block;
-      width: 30%;
-      margin: 0 2%;
+      //margin: 0 2%;
 
       img {
         display: block;
@@ -39,6 +39,10 @@
     }
   }
 
+  &__content{
+    overflow: hidden;
+  }
+
   p {
     max-width: 590px;
     margin: 0 auto;
@@ -46,9 +50,7 @@
 }
 @media (min-width: $phone-landscape) {
   .testimonials {
-
     &__logos {
-
       &-item {
         width: auto;
       }
@@ -62,11 +64,9 @@
 }
 @media (min-width: $tablet-landscape) {
   .testimonials {
-
     &__logos {
-
       &-item {
-        margin: 0 30px;
+        //margin: 0 30px;
       }
     }
   }
@@ -76,9 +76,8 @@
     padding: 131px 0 120px;
 
     &__logos {
-
       &-item {
-        margin: 0 52px;
+        //margin: 0 52px;
       }
     }
   }

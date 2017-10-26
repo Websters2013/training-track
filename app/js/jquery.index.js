@@ -42,6 +42,10 @@
             new Anchor( $(this) );
         } );
 
+        $('.testimonials').each( function() {
+            new Testimonials( $(this) );
+        } );
+
     });
 
     var Anchor = function ( obj ) {
@@ -69,6 +73,67 @@
             };
 
         _construct()
+    };
+
+    var Comments = function(obj) {
+
+        //private properties
+        var _obj = obj,
+            _commentsList = _obj.find('.comments__list'),
+            _hideItems = _commentsList.find('.hide'),
+            _btn = _obj.find('.comments__more'),
+            _hideComments = _obj.find('.comments__count');
+
+        //private methods
+        var _addEvents = function() {
+
+                _btn.on({
+                    'click': function () {
+                        var curElem = $(this);
+
+                        if ( curElem.hasClass('active') ) {
+                            _hideMore();
+                        } else {
+                            _showMore();
+                        }
+
+                        return false;
+                    }
+                });
+
+            },
+            _showMore = function () {
+                _hideItems.each(function (i) {
+                    var curElem = $(this);
+
+                    curElem.slideDown(300);
+
+                    setTimeout(function () {
+                        _btn.addClass('active');
+                    }, 300)
+                });
+            },
+            _hideMore = function () {
+                _hideItems.each(function (i) {
+                    var curElem = $(this);
+
+                    curElem.slideUp(300);
+
+                    setTimeout(function () {
+                        _btn.removeClass('active');
+                    }, 300)
+                });
+            },
+            _init = function() {
+                _addEvents();
+                _hideComments.text(_hideItems.length);
+            };
+
+        //public properties
+
+        //public methods
+
+        _init();
     };
 
     var Site = function(obj) {
@@ -121,9 +186,31 @@
             _move = function( scrollTop ){
                 var winHeight = $(window).height();
 
-                $('.easier').each( function() {
+                $( '.easier' ).each( function() {
                     var curElem = $(this),
                         items = curElem.find('.easier__photos-line'),
+                        curTop = curElem.offset().top,
+                        curHeight = curElem.height(),
+                        curKoef = -.05;
+
+                    items.each( function() {
+                        var curItem = $(this);
+
+                        curKoef = -curKoef;
+                        if ( ( scrollTop <= ( curTop + curHeight ) && ( ( winHeight + scrollTop ) >= curTop ) ) ) {
+
+                            if ( curTop < winHeight ) {
+                                _paralax( curItem, 0, scrollTop, curKoef);
+                            } else {
+                                _paralax( curItem, 0, scrollTop - (curTop - winHeight), curKoef);
+                            }
+                        }
+                    } );
+                } );
+
+                $( '.coach' ).each( function() {
+                    var curElem = $(this),
+                        items = curElem.find('.coach__photos-line'),
                         curTop = curElem.offset().top,
                         curHeight = curElem.height(),
                         curKoef = -.05;
@@ -530,6 +617,87 @@
         _init();
     };
 
+    var Testimonials = function( obj ) {
+
+        //private properties
+        var _obj = obj,
+            _logosList = _obj.find( '.testimonials__logos' ),
+            _contentSlider = _obj.find( '.testimonials__content' ),
+            _swiperContentSlider, _swiperLogosList;
+
+        //private methods
+        var _initSliders = function() {
+
+                _swiperContentSlider = new Swiper( _contentSlider, {
+                    slidesPerView: 1,
+                    loop: true,
+                    onSlideChangeStart: function () {
+
+                        var promoTabsSlide = _contentSlider.find( '.swiper-slide' ),
+                            curSlide = +( promoTabsSlide.filter( '.swiper-slide-active' ).data( 'swiper-slide-index' ) ),
+                            promoMainSlide = _logosList.find( '.swiper-slide' ),
+                            promoMainActiveSlide = promoMainSlide.filter( '[data-swiper-slide-index]' );
+
+                        promoMainSlide.removeClass( 'swiper-slide-active' );
+                        promoMainActiveSlide.addClass( 'swiper-slide-active' );
+
+                        console.log( curSlide )
+
+                        //$( '.testimonials__logos' )[0].swiper.slideTo( curSlide, 200, false )
+
+                    }
+                } );
+
+                _swiperLogosList = new Swiper( _logosList, {
+                    slidesPerView: 3,
+                    loop: true,
+                    centeredSlides: true,
+                    onInit: function () {
+
+                        var promoTabsSlide = _logosList.find( '.swiper-slide' );
+
+                        promoTabsSlide.eq( 0 ).addClass( 'swiper-slide-active' );
+
+                        promoTabsSlide.on( 'click', function () {
+
+                            var curSlide = +( $( this ).data( 'swiper-slide-index' ) );
+
+                            promoTabsSlide.removeClass( 'swiper-slide-active' );
+                            $( this ).addClass( 'swiper-slide-active' );
+
+                            _logosList[0].swiper.slideTo( curSlide, 200, false );
+                            _contentSlider[0].swiper.slideTo( curSlide, 200, false );
+
+                            return false;
+                        } );
+
+                    },
+                    onSlideChangeStart: function () {
+
+                        var promoTabsSlide = _logosList.find( '.swiper-slide' ),
+                            curSlide = +( promoTabsSlide.filter( '.swiper-slide-active' ).data( 'swiper-slide-index' ) );
+
+                        _contentSlider[0].swiper.slideTo( curSlide, 200, false );
+
+                    }
+                } );
+
+            },
+            _onEvent = function() {
+
+            },
+            _init = function() {
+                _onEvent();
+                _initSliders ();
+            };
+
+        //public properties
+
+        //public methods
+
+        _init();
+    };
+
     var DrawTriangle = function(obj) {
 
         //private properties
@@ -776,67 +944,6 @@
             },
             _init = function() {
                 _addEvents();
-            };
-
-        //public properties
-
-        //public methods
-
-        _init();
-    };
-
-    var Comments = function(obj) {
-
-        //private properties
-        var _obj = obj,
-            _commentsList = _obj.find('.comments__list'),
-            _hideItems = _commentsList.find('.hide'),
-            _btn = _obj.find('.comments__more'),
-            _hideComments = _obj.find('.comments__count');
-
-        //private methods
-        var _addEvents = function() {
-
-                _btn.on({
-                    'click': function () {
-                        var curElem = $(this);
-
-                        if ( curElem.hasClass('active') ) {
-                            _hideMore();
-                        } else {
-                            _showMore();
-                        }
-
-                        return false;
-                    }
-                });
-
-            },
-            _showMore = function () {
-                _hideItems.each(function (i) {
-                    var curElem = $(this);
-
-                    curElem.slideDown(300);
-
-                    setTimeout(function () {
-                        _btn.addClass('active');
-                    }, 300)
-                });
-            },
-            _hideMore = function () {
-                _hideItems.each(function (i) {
-                    var curElem = $(this);
-
-                    curElem.slideUp(300);
-
-                    setTimeout(function () {
-                        _btn.removeClass('active');
-                    }, 300)
-                });
-            },
-            _init = function() {
-                _addEvents();
-                _hideComments.text(_hideItems.length);
             };
 
         //public properties
