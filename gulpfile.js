@@ -84,7 +84,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('php', function () {
-    return gulp.src(paths.php, {
+    return gulp.src(paths.fonts, {
         base: 'app/php'
     }).pipe(gulp.dest('dist/php'));
 });

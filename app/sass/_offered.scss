@@ -6,21 +6,48 @@
 
   h3{
     width: 100%;
-    margin-bottom: 31px;
+    margin-bottom: 38px;
     color: #c4c4c4;
     @include main-font-bold;
     font-size: 20px;
+  }
 
-    & + div{
+  > div{
+
+    p{
+      margin-bottom: 15px;
+    }
+
+    h3 + p{
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 21px;
       font-size: 16px;
       line-height: 24px;
     }
 
   }
 
-  > div{
+  &__photo-frame{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    li{
+      width: 47.6%;
+    }
+
+    div{
+      margin-bottom: 25px;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 6px 13px rgba(0,0,0,.19);
+
+      img{
+        display: block;
+        width: 100%;
+      }
+
+    }
 
   }
 
@@ -36,21 +63,29 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 155px 0 75px 0;
+    padding: 125px 0 75px 0;
 
     h3{
       font-size: 28px;
+    }
 
-      & + div{
+    & > ul{
+      width: 48.6%;
+    }
+
+    & > div{
+      width: 43.6%;
+      padding-right: 44px;
+
+      &:first-child{
+        padding-top: 22px;
+      }
+
+      h3 + p{
         font-size: 24px;
         line-height: 35px;
       }
 
-    }
-
-    & > div{
-      width: 48.6%;
-      padding-right: 30px;
     }
 
   }
