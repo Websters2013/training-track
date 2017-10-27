@@ -13,12 +13,7 @@
   font-size: 12px;
   letter-spacing: 2.1px;
   text-transform: uppercase;
-  transition: background .3s ease-in-out;
   @include main-font-bold();
-
-  &:hover {
-    background-color: #efefef;
-  }
 
   &.btn_2 {
     border-color: #cacaca;
@@ -29,7 +24,11 @@
     padding: 3px;
     border: none;
     will-change: transform;
-    background: #cacaca;
+    background: #ff8080;
+    background: -moz-linear-gradient(-45deg, #ff8080 25%, #81befe 75%);
+    background: -webkit-linear-gradient(-45deg, #ff8080 25%,#81befe 75%);
+    background: linear-gradient(135deg, #ff8080 25%,#81befe 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8080', endColorstr='#81befe',GradientType=1 );
 
     &:before {
       width: 150%;
@@ -60,16 +59,6 @@
       transition: opacity .3s ease-in-out;
     }
 
-    &:hover {
-
-      &:before {
-        //transform: translate(-50%,-50%) rotate(240deg);
-        opacity: 0;
-      }
-      span {
-        //background-color: transparent;
-      }
-    }
   }
 
   &.btn_icon {
@@ -169,6 +158,23 @@
 }
 @media (min-width: $desktop) {
   .btn {
+    transition: background .3s ease-in-out;
+
+    &:hover {
+      background-color: #efefef;
+    }
+
+    &.btn_color {
+
+      &:hover {
+
+        &:before {
+          opacity: 0;
+        }
+
+      }
+
+    }
 
   }
 }

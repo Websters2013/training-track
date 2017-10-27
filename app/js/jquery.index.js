@@ -621,66 +621,46 @@
 
         //private properties
         var _obj = obj,
-            _logosList = _obj.find( '.testimonials__logos' ),
-            _contentSlider = _obj.find( '.testimonials__content' ),
-            _swiperContentSlider, _swiperLogosList;
+            _sliderContent = _obj.find( '.testimonials__content' ),
+            _sliderThumbs = _obj.find( '.testimonials__logos' );
 
         //private methods
         var _initSliders = function() {
 
-                _swiperContentSlider = new Swiper( _contentSlider, {
-                    slidesPerView: 1,
-                    loop: true,
-                    onSlideChangeStart: function () {
+                _sliderContent.slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    touchThreshold: 18,
+                    autoplay: true,
+                    arrows: false,
+                    autoplaySpeed: 5000,
+                    asNavFor: _sliderThumbs
+                });
 
-                        var promoTabsSlide = _contentSlider.find( '.swiper-slide' ),
-                            curSlide = +( promoTabsSlide.filter( '.swiper-slide-active' ).data( 'swiper-slide-index' ) ),
-                            promoMainSlide = _logosList.find( '.swiper-slide' ),
-                            promoMainActiveSlide = promoMainSlide.filter( '[data-swiper-slide-index]' );
-
-                        promoMainSlide.removeClass( 'swiper-slide-active' );
-                        promoMainActiveSlide.addClass( 'swiper-slide-active' );
-
-                        console.log( curSlide )
-
-                        //$( '.testimonials__logos' )[0].swiper.slideTo( curSlide, 200, false )
-
-                    }
-                } );
-
-                _swiperLogosList = new Swiper( _logosList, {
-                    slidesPerView: 3,
-                    loop: true,
-                    centeredSlides: true,
-                    onInit: function () {
-
-                        var promoTabsSlide = _logosList.find( '.swiper-slide' );
-
-                        promoTabsSlide.eq( 0 ).addClass( 'swiper-slide-active' );
-
-                        promoTabsSlide.on( 'click', function () {
-
-                            var curSlide = +( $( this ).data( 'swiper-slide-index' ) );
-
-                            promoTabsSlide.removeClass( 'swiper-slide-active' );
-                            $( this ).addClass( 'swiper-slide-active' );
-
-                            _logosList[0].swiper.slideTo( curSlide, 200, false );
-                            _contentSlider[0].swiper.slideTo( curSlide, 200, false );
-
-                            return false;
-                        } );
-
-                    },
-                    onSlideChangeStart: function () {
-
-                        var promoTabsSlide = _logosList.find( '.swiper-slide' ),
-                            curSlide = +( promoTabsSlide.filter( '.swiper-slide-active' ).data( 'swiper-slide-index' ) );
-
-                        _contentSlider[0].swiper.slideTo( curSlide, 200, false );
-
-                    }
-                } );
+                _sliderThumbs.slick({
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    asNavFor: _sliderContent,
+                    centerMode: true,
+                    arrows: false,
+                    touchThreshold: 18,
+                    focusOnSelect: true,
+                    centerPadding: 0,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                });
 
             },
             _onEvent = function() {
